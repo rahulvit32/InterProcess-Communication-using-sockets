@@ -30,7 +30,6 @@ b) With muliple machines - Firstly make all machines connected via a single netw
 It runs same as above code, here the server machine can see all the cpu related statistics of other connected machines.
 
 ## References
-1. https://medium.com/swlh/lets-write-a-chat-app-in-python-f6783a9ac170
-2. https://www.geeksforgeeks.org/inter-process-communication-ipc/
-3. https://www.geeksforgeeks.org/methods-in-interprocess-communication/
-4. https://medium.com/swlh/lets-write-a-chat-app-in-python-f6783a9ac170
+1. https://www.geeksforgeeks.org/inter-process-communication-ipc/
+2. https://www.geeksforgeeks.org/methods-in-interprocess-communication/
+3. https://medium.com/swlh/lets-write-a-chat-app-in-python-f6783a9ac170
