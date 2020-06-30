@@ -1,4 +1,4 @@
-# Inter-Process-Communication-using-sockets
+# Inter Process Communication using sockets
 Inter process communication (IPC) is a mechanism which allows processes to communicate with each other and synchronize their actions. The communication between these processes can be seen as a method of co-operation between them. Processes can communicate with each other through both:
 ### 1) Shared Memory 
 Communication between processes using shared memory requires processes to share some variable and it completely depends on how programmer will implement it. {Ex: Producer-Consumer problem -> i) unbounded buffer problem, ii) bounded buffer problem}
