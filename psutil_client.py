@@ -8,9 +8,6 @@ from threading import Thread
 import tkinter
 import psutil
 
-
-
-
 def getListOfProcessSortedByMemory():
     '''
     Get list of running process sorted by Memory Usage
@@ -33,14 +30,18 @@ def getListOfProcessSortedByMemory():
     return listOfProcObjects
 
 
-processName=""
-processName+=" CPU STATS: "+str(psutil.cpu_stats())+"<------>"
-processName+=" CPU FREQUENCY: "+str(psutil.cpu_freq(percpu=False))+"<------>"
-processName+=" CPU VIRTUAL MEMORY STATS: "+str(psutil.virtual_memory())+"<------>"
+processName="("
+processName+=" CPU STATS: "+str(psutil.cpu_stats())+" ) ("
+processName+=" CPU FREQUENCY: "+str(psutil.cpu_freq(percpu=False))+" ) ("
+processName+=" CPU VIRTUAL MEMORY STATS: "+str(psutil.virtual_memory())+" )"
 
 for proc in psutil.process_iter():
-    processName += str(proc.name())+" --> "+str(proc.pid)+" "
-
+    #processName += str(proc.name())+" --> "+str(proc.pid)+" "
+    try:
+       if proc.name == processName:
+          print(proc)
+    except (PermissionError, AccessDenied):
+        print ("Permission error or access denied on process") # can't display name or id here
 
     
 
@@ -80,16 +81,15 @@ my_msg = tkinter.StringVar()  # For the messages to be sent.
 my_msg.set("Type your name here.")
 scrollbar = tkinter.Scrollbar(messages_frame)  # To navigate through past messages.
 # Following will contain the messages.
-msg_list = tkinter.Listbox(messages_frame, height=20, width=240, yscrollcommand=scrollbar.set, xscrollcommand=scrollbar.set)
+msg_list = tkinter.Listbox(messages_frame, height=15, width=50, yscrollcommand=scrollbar.set)
 scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
 msg_list.pack(side=tkinter.LEFT, fill=tkinter.BOTH)
 msg_list.pack()
-messages_frame.pack()
-
+messages_frame.pack() 
+ 
 entry_field = tkinter.Entry(top, textvariable=my_msg)
-entry_field.bind("<Return>", send)
-entry_field.pack()
-send_button = tkinter.Button(top, text="Send", command=send)
+entry_field.bind("<Return>", send) entry_field.pack() s
+end_button = tkinter.Button(top, text="Send", command=send)
 send_button.pack()
 
 top.protocol("WM_DELETE_WINDOW", on_closing)
