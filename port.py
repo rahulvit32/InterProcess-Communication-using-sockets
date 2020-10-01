@@ -11,10 +11,6 @@ subprocess.call('clear', shell=True)
 remoteServer    = input("Enter a remote host to scan: ")
 remoteServerIP  = socket.gethostbyname(remoteServer)
 
-# Print a nice banner with information on which host we are about to scan
-print ("-" * 50)
-print ("Please wait, scanning remote host", remoteServerIP)
-print ("-" * 50)
 
 # Check what time the scan started
 t1 = datetime.now()
